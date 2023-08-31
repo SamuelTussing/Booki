@@ -1,0 +1,844 @@
+/****** General ***********/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+:root {
+    --main-color: #0065FC;
+    --main-bg-color: #F2F2F2;
+    --filter-bg-color: #DEEBFF;
+}
+
+.fa-solid {
+    color: var(--main-color);
+}
+
+/*define max width*/
+body {
+    display: flex;
+    justify-content: center;
+    max-width: 1440px; 
+	margin: 0 auto;
+	float: none;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 22px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.euro {
+    font-weight: 700;
+}
+
+.neutralStar {
+    color: var(--main-bg-color)
+}
+
+/**** Header ****/
+header{
+    background-color: white;
+    padding: 30px 50px 50px 0px;
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links{
+    display: flex;
+}
+
+/**Ajust logo size**/
+nav img{
+    object-fit: cover;
+    width: 61.09px;
+    height: 19px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    margin-left: 30px
+}
+
+nav a:hover{
+    color: var(--main-color);
+    border-top: 2px solid var(--main-color);
+    padding-top: 15px;
+}
+
+/** SearchSection**/
+/**The form is flexbox**/
+.searchsection form{
+    display: flex;
+    flex-direction : row;
+    align-items: center;
+    width: 377px;
+    height:49px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.title{
+    display: flex;
+    flex-direction : column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.title p{
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    line-height: 19px;
+    margin-top: 8px;
+}
+
+/*define opacity for the stars in the rating*/
+.neutral-star{
+    opacity: 0;
+}
+
+/**Aspect of the left part of the form (with grey background)**/
+.picto{
+    background-color: #F2F2F2;
+    height : 49px;
+    width: 50px;
+    display: flex;
+    flex-direction : row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #F2F2F2;
+    border-radius: 15px 0px 0px 15px;
+}
+
+/**Icon aspect**/
+.picto .fa-solid{
+    color :black;
+    height: 18px;
+    width: 14px;
+}
+
+/**Define the input search zone**/
+.searchzone{
+    border-style: none;
+    height : 49px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+/** Changes the text aspect in the searchbar**/
+input::placeholder,
+.filter-txt {
+    font-weight: bold;
+    font-size: 18px;
+    text-align : center;
+    color: black;
+    line-height: 21px;
+    width: 147px;
+    height: 21px;
+}
+
+.input {
+    font-weight: bold;
+    font-size: 18px;
+    text-align : center;
+    color: black;
+    line-height: 21px;
+    width: 147px;
+    height: 21px;
+}
+
+/** Changes the aspect of the right button**/
+.buttonsearch{
+    background-color: #0065FC;
+    color: white;
+    border: 1px solid #0065FC;
+    border-radius: 0px 15px 15px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 16px;
+    gap: 10px;
+    width: 132px;
+    height: 49px;
+}
+.buttonsearch span{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    width: 100px;
+    height: 21px;
+}
+
+/**Hide icon in the right button**/
+.buttonsearch .fa-solid{
+    color: white;
+    display: none;
+}
+
+/***** Filters section*****/
+
+/**Container contains filters buttons & info sentence**/
+.filter-container{  
+    margin-bottom: 40px;
+}
+
+/**filterclass contains all filterbuttons and txt**/
+.filterclass{
+    display: flex;
+    flex-direction : row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+
+/**contains only the filterbuttons**/
+.filtre-buttonchoice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/**Filterbutton style**/
+.filterbutton{
+    display: flex;
+    flex-direction : row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 4px 19px;
+    height: 40px;
+    border: 2px solid #D9D9D9;
+    background-color: white;
+    gap: 10px;
+}
+
+.filterbutton:hover{
+    background-color: #DEEBFF;
+}
+
+/**info bubble**/
+.filter-info i{
+    width: 24px;
+    height: 24px;
+    left: 0px;
+    top: 0px;
+    border-radius: 25px;
+    border: 1px solid #D9D9D9;
+    text-align: center;
+    padding: 4px 2px 0px 2px;
+}
+
+/*filter-info contains i and txt*/
+.filter-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+/****** Hebergements And Populaires ***********/
+.hebergements-and-populaires {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hebergements-and-populaires section {
+    background-color: var(--main-bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/****** Hebergements ***********/
+.hebergements {
+    width: 65%;
+}
+
+/*section containing all the hebergements-cards*/
+.hebergements-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 0px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/**Set the decoration for cards when clicked**/
+.hebergements-cards a,
+.populaires-cards a{
+    text-decoration: none;
+    color: black;
+}
+
+/** Set hebergements cards style**/
+.hebergements-cards .card {
+    margin-top: 33px;
+    height: 207px;
+}
+
+/*img covers 50% of the card height and all the width*/
+.hebergements-cards img {
+    width: 250px;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/*card-content contains the description of the cards and the rating*/
+.hebergements-cards .card-content{
+    height : 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding : 15px;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+
+.hebergements-cards .card-title {
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+
+.hebergements-cards .card-rating {
+    margin-top: 5px;
+}
+
+/*set the decoration for the txt when clicked*/
+.more-results{
+    color: black;
+    text-decoration: none;
+}
+
+/****** Populaires ***********/
+.populaires {
+    width: 32%;
+}
+
+.populaires-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.populaires-cards .card {
+    display: flex;
+    margin-top: 33px;
+}
+
+.populaires-cards img {
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.populaires-cards .card-content {
+    width: 67%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.populaires-cards .card-title {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.populaires-cards .card-subtitle,
+.hebergements-cards .card-subtitle {
+    margin: 0;
+}
+
+.populaires-cards .card-rating {
+    margin-bottom: 5px;
+}
+
+/*****Activites*****/
+.activites{
+    margin-top: 30px;
+    padding: 30px;
+}
+
+.activites h2{
+    margin-bottom: 33px;
+}
+
+/*contains all the cards of the section*/
+.activites-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 380px;
+    padding: 20px 19px 20px 0px;
+    gap: 30px;
+    
+}
+
+/*contains all info of the card (img and description)*/
+.cards{
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+/*this div contains the img of the card*/
+.image-article{
+    height: 65%;
+}
+.activites-cards img{
+    width: 100%;
+    height: 280px;
+    border-radius: 20px 20px 0px 0px;
+    object-fit: cover;
+    margin-top: -10px;
+}
+
+.activites-cards .card-content{
+    padding-bottom: 10px;
+    padding-left: 15px;
+    height: 70px;
+}
+
+.activites-card-content{
+    padding-left: 15px;
+    height: 60px;
+}
+
+/*this "a" contains the entire card and allow the card to be clickable*/
+.activites-cards a{
+    padding-bottom: 0px;
+    color: black;
+    text-decoration: none;
+    width: 22%;
+}
+
+/*****Footer*****/
+
+/*footer contains a list (ul) with 3 column*/
+footer{
+    background-color: #F2F2F2;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer-column{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 30%;
+}
+
+footer ul{
+    list-style-type: none;
+    padding-inline-start : 0
+}
+
+footer span{
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+footer li{
+    line-height: 30px;
+}
+
+/*set the decoration when clicked*/
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    line-height: 19px;  
+}
+
+/* Le code ci-dessous correspond à la version responsive uniquement */
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (max-width: 1024px) {
+
+    /*allows "Filtres" txt to go on top of filterbuttons list*/
+    .filterclass{
+        display: flex;
+        flex-direction : column;
+        align-items:flex-start;
+        justify-content: flex-start;
+        gap: 10px;
+        padding-bottom: 15px;
+    }
+
+    /*"hebergements" and "populaires" section are not side by side anymore*/
+    .hebergements-and-populaires {
+        flex-direction: column;
+    }
+
+    .hebergements {
+        width: 100%;
+    }
+
+    .hebergements-cards{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .populaires {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    /*the populaires cards are now next to each other*/
+    .populaires-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap : 20px;
+        flex-wrap: wrap;
+    }
+
+    /*allows the cards to have a responsive size*/
+    .populaires-cards a {
+       flex: 1 0 130px
+    }
+
+    .populaires-cards .card-title {
+        font-size: 14px;
+    }
+
+    .populaires-cards .card-subtitle {
+        font-size: 13px;
+    }
+
+
+    .activites-cards{
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .activites-cards img{
+        max-width: 190px;
+        height: 100%;
+    }
+
+    .activites-cards .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 270px;
+    }
+
+    .activites-card-content{
+        padding-left: 15px;
+    }
+
+    .populaires-cards .card-content{
+       height: 70px;
+       justify-content: space-between;
+    }
+
+    .image-article{
+        height: 190px;
+    }
+
+    footer{
+        margin-top: 0;
+    }
+}
+
+/* Activites section responsive at 930px*/
+@media (max-width: 930px){
+    /*allows to have 2 activites cards in a row*/
+    .activites-cards a{
+        width: 40%;
+    }
+    .activites-cards img{
+        max-width: 100%;
+    }
+}
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 767.98px) {
+   
+    /*allows to have background covering all the screen width*/
+    .main-container{
+        padding: 0px;
+        max-width: 100%;
+    }
+
+    /*correction of the main-container padding modification for sections without background*/
+    .searchsection,
+    .filter-container,
+    footer{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    header{
+        align-items:center;
+        padding: 30px 0px 30px 0px;
+
+    }
+
+    /*changes the elements disposition in header*/
+    nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 70px;
+        width: 100%;
+    }
+
+    .nav-links{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 20px 20px 20px 20px;
+        height:min-content;
+    }
+
+    /* Allows the hover to have 50% of width. If there is no hover, a light grey border will appear*/
+    .nav-links-section{
+        width: 49%;
+        text-align: center;
+        border-bottom: 2px solid #F2F2F2;
+        padding-bottom: 15px;
+        padding-top: 0;
+    }
+
+    .nav-links-section:hover{
+        border-bottom: 2px solid var(--main-color);
+        padding-bottom: 15px;
+        padding-top: 0;
+    }
+
+    nav a{
+        margin-left: 0px
+    }
+
+    /*changes the link hover from top line to bottom line*/
+    nav a:hover{
+        color: var(--main-color);
+        border-top: 0px;
+    }
+
+    .search-bar{
+        margin: auto;
+        width: auto;
+    }
+    .buttonsearch{
+        width: auto;
+    }
+
+    /**Hide "rechercher" text in"textbutton"**/
+    .buttonsearch span{
+        display: none;
+    }
+    
+    /**Reveal icon in the right button**/
+    .buttonsearch .fa-solid{
+        color: white;
+        display: block;
+    }
+
+    .filtre-buttonchoice{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .filterbutton{
+        width: 33%;
+    }
+
+    /* "populaires" section is now on top*/
+    .hebergements-and-populaires{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .hebergements-and-populaires section{
+        border-radius: 0px;
+    }
+
+    /*disables background for "hebergement" section*/
+    .hebergements-and-populaires .hebergements{
+        background-color: white;
+    }
+    
+    .populaires{
+        margin-top: 0;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .populaires-title{
+        margin-bottom: 25px;
+    }
+    
+    /*"populaires" cards are in column*/
+    .populaires-cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .populaires-cards img{
+        height: 146px;
+    }
+
+    /*allows full width and responsive for the cards*/
+    .populaires-cards a{
+        width: 100%;
+    }
+
+    .populaires-cards .card{
+        margin-top: 0;
+        width: 100%;
+    }
+
+    /*Allows full width and responsive for the "hebergements" cards*/
+    .hebergements-cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hebergements-cards .card{
+        height: 260px;
+    }
+
+    .hebergements-cards a{
+        width: 100%;
+    }
+
+    .hebergements-cards img{
+        width: 100%;
+    }
+
+    /*"activites" cards are now in column and full width for responsive*/
+    .activites-cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .activites-cards a{
+        width: 100%;
+    }
+    .image-article{
+        height: auto;
+    }
+
+    .activites-cards img{
+        height: 190px;
+    }
+
+    /*footer contains a list in column*/
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column{
+        padding-left: 30px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+/*allows a better responsive reaction for small screen devices*/
+
+    .main-container{
+        padding: 0px;
+    }
+
+    .searchsection,
+    .filter-container,
+    footer{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .hebergements-and-populaires section{
+        border-radius: 0px;
+    }
+
+    .searchsection form{
+    width: auto;
+    }
+
+    .filterbutton{
+        width: 31%;
+    }
+
+    .filterbutton span{
+        font-size: 14px;
+    }
+
+    .filter-info i{
+        width: 55px;
+    }
+
+    .populaires-cards .card{
+        margin-top: 0;
+        width: auto;
+    }
+
+    .hebergements-cards .card{
+        height: 200px;
+    }
+
+    .activites{
+        margin-bottom: 50px;
+    }
+
+    .activites-cards{
+        padding: 0px;
+    }
+}
